@@ -1,5 +1,5 @@
 import "./App.css";
-import { Route, BrowserRouter as Router, Routes } from "react-router-dom";
+import { Route, HashRouter as Router, Routes } from "react-router-dom";
 import Landing from "./Landing";
 import Home from "./Home";
 import About from "./About";
@@ -56,7 +56,7 @@ const App = () => {
       <AnimatePresence mode={"wait"}>
         <Routes>
           <Route path="/" element={<Landing />} />
-          <Route path="/" element={<Home />} />
+          <Route path="/home" element={<Home />} />
           <Route path="/portfolio" element={<Portfolio images={images} />} />
           <Route path="/about" element={<About />} />
           <Route path="/contact" element={<Contact />} />
