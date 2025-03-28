@@ -5,7 +5,7 @@ const Landing = () => {
   return (
     <FadeIn>
       <Link
-        to="/about"
+        to="about"
         className="h-full w-full items-center justify-center flex p-32 cursor-pointer"
       >
         <img src="/cat.jpg" alt="cat" />

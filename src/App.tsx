@@ -55,13 +55,13 @@ const App = () => {
     <Router>
       <AnimatePresence mode={"wait"}>
         <Routes>
-          <Route path="/" element={<Landing />} />
-          <Route path="/home" element={<Home />} />
-          <Route path="/portfolio" element={<Portfolio images={images} />} />
-          <Route path="/about" element={<About />} />
-          <Route path="/contact" element={<Contact />} />
+          <Route path="" element={<Landing />} />
+          <Route path="home" element={<Home />} />
+          <Route path="portfolio" element={<Portfolio images={images} />} />
+          <Route path="about" element={<About />} />
+          <Route path="contact" element={<Contact />} />
           <Route
-            path="/project/dear-diary"
+            path="project/dear-diary"
             element={<ProjectPage imageUrls={images["Dear_Diary"]} />}
           />
         </Routes>
