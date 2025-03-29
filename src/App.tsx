@@ -1,6 +1,5 @@
 import "./App.css";
 import { Route, HashRouter as Router, Routes } from "react-router-dom";
-import Landing from "./Landing";
 import Home from "./Home";
 import About from "./About";
 import Contact from "./Contact";
