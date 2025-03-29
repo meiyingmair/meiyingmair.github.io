@@ -18,7 +18,7 @@ const Home = () => {
       <FadeIn>
         {/* Featured Project Preview */}
         <div className="w-full">
-          <Link to="/project/dear-diary" className="block">
+          <Link to="/portfolio" className="block">
             <div
               className="relative h-[90vh] w-full overflow-hidden"
               onMouseEnter={() => setHovered(true)}
