@@ -2,7 +2,15 @@ import Navigation from "../Navigation";
 import FadeIn from "./FadeIn";
 import { useState } from "react";
 
-const ProjectPage = ({ imageUrls }: { imageUrls: string[] }) => {
+const ProjectPage = ({
+  imageUrls,
+  title,
+  description,
+}: {
+  imageUrls: string[];
+  title: string;
+  description: string;
+}) => {
   const [selectedImage, setSelectedImage] = useState<string | null>(null);
 
   console.log("imageUrls", imageUrls);
@@ -11,31 +19,32 @@ const ProjectPage = ({ imageUrls }: { imageUrls: string[] }) => {
     <div className="min-h-screen bg-white">
       <Navigation />
       <FadeIn>
-        <div className="grid grid-cols-4 gap-8 p-8 max-w-7xl mx-auto">
+        <div className="grid grid-cols-5 gap-8 px-8 mx-auto">
           {/* Left column - Information */}
           <div className="col-span-1 pr-8">
-            <h2 className="text-2xl tracking-wide font-light mb-8">
-              Dear Diary
-            </h2>
+            <h2 className="text-2xl tracking-wide font-light mb-8">{title}</h2>
             <div className="prose">
               {/* Add your project information here */}
               <p className="text-gray-600 font-light leading-relaxed">
-                Project description and information goes here. You can add
-                multiple paragraphs, lists, or any other content in this
-                section.
+                {description}
               </p>
             </div>
           </div>
 
           {/* Right column - Image Gallery */}
-          <div className="col-span-3 h-[calc(100vh-6rem)] overflow-y-auto">
-            <div className="grid grid-cols-2 gap-4">
+          <div className="col-span-4 h-[calc(100vh-6rem)] overflow-y-auto [&::-webkit-scrollbar]:hidden ">
+            <div className="grid grid-cols-3 gap-4">
               {imageUrls.map((imageUrl, index) => (
-                <div key={imageUrl} className="aspect-[4/3] w-full">
+                <div
+                  key={imageUrl}
+                  className={`aspect-[4/3] w-full ${
+                    index % 3 === 0 ? "col-span-2" : ""
+                  }`}
+                >
                   <img
                     src={imageUrl}
                     alt={`Image ${index + 1}`}
-                    className="w-full h-full object-cover hover:opacity-90 transition-opacity cursor-pointer"
+                    className="w-full h-full object-cover hover:opacity-90 transition-opacity cursor-pointer border border-black bg-white"
                     onClick={() => setSelectedImage(imageUrl)}
                   />
                 </div>
@@ -61,7 +70,7 @@ const ProjectPage = ({ imageUrls }: { imageUrls: string[] }) => {
             <img
               src={selectedImage}
               alt="Full size view"
-              className="max-h-[90vh] max-w-[90vw] object-contain"
+              className="max-h-[90vh] max-w-[90vw] object-contain border border-black bg-white"
               onClick={(e) => e.stopPropagation()}
             />
           </div>

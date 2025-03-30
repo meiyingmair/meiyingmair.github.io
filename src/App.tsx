@@ -63,7 +63,13 @@ const App = () => {
             <Route
               key={key}
               path={`project/${key}`}
-              element={<ProjectPage imageUrls={images[key]} />}
+              element={
+                <ProjectPage
+                  imageUrls={images[key]}
+                  title={key}
+                  description={""}
+                />
+              }
             />
           ))}
         </Routes>
