@@ -1,38 +1,50 @@
 import Navigation from "../Navigation";
 import FadeIn from "./FadeIn";
 import { useState } from "react";
+import { Link } from "react-router-dom";
 
 const ProjectPage = ({
   imageUrls,
   title,
-  description,
+  journalImageUrls,
 }: {
   imageUrls: string[];
   title: string;
-  description: string;
+  journalImageUrls: string[];
 }) => {
   const [selectedImage, setSelectedImage] = useState<string | null>(null);
-
-  console.log("imageUrls", imageUrls);
 
   return (
     <div className="min-h-screen bg-white">
       <Navigation />
       <FadeIn>
-        <div className="grid grid-cols-5 gap-8 px-8 mx-auto">
-          {/* Left column - Information */}
-          <div className="col-span-1 pr-8">
+        <div className="grid grid-cols-4 gap-8 px-8 mx-auto">
+          {/* Left column - Information & Vertical Images */}
+          <div className="col-span-1">
+            <Link
+              to="/portfolio"
+              className="inline-block mb-6 text-sm tracking-wide hover:underline"
+            >
+              ← Back to Portfolio
+            </Link>
             <h2 className="text-2xl tracking-wide font-light mb-8">{title}</h2>
-            <div className="prose">
-              {/* Add your project information here */}
-              <p className="text-gray-600 font-light leading-relaxed">
-                {description}
-              </p>
+            <div className="h-[calc(100vh-12rem)] overflow-y-auto px-auto [&::-webkit-scrollbar]:hidden">
+              {journalImageUrls.map((imageUrl, index) => (
+                <div key={`vertical-${index}`} className="mb-4">
+                  <img
+                    decoding="async"
+                    src={imageUrl}
+                    alt={`Vertical Image ${index + 1}`}
+                    className="w-full object-cover hover:opacity-90 transition-opacity cursor-pointer border border-black bg-white"
+                    onClick={() => setSelectedImage(imageUrl)}
+                  />
+                </div>
+              ))}
             </div>
           </div>
 
           {/* Right column - Image Gallery */}
-          <div className="col-span-4 h-[calc(100vh-6rem)] overflow-y-auto [&::-webkit-scrollbar]:hidden ">
+          <div className="col-span-3 h-[calc(100vh-6rem)] overflow-y-auto [&::-webkit-scrollbar]:hidden ">
             <div className="grid grid-cols-3 gap-4">
               {imageUrls.map((imageUrl, index) => (
                 <div
@@ -42,6 +54,7 @@ const ProjectPage = ({
                   }`}
                 >
                   <img
+                    decoding="async"
                     src={imageUrl}
                     alt={`Image ${index + 1}`}
                     className="w-full h-full object-cover hover:opacity-90 transition-opacity cursor-pointer border border-black bg-white"

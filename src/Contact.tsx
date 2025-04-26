@@ -32,7 +32,7 @@ const Contact = () => {
                     rel="noopener noreferrer"
                     className="hover:underline"
                   >
-                    Resume / CV
+                    Resume
                   </a>
                 </p>
                 <p>

@@ -2,7 +2,7 @@ import { Link } from "react-router-dom";
 
 const Navigation = () => (
   <nav>
-    <div className="container mx-auto flex justify-between items-center p-2 font-light">
+    <div className="container mx-auto flex justify-between items-center p-2 font-light z-50">
       <div>
         <Link to="/" className="text-2xl tracking-wide mb-3">
           MEI-YING MAIR

@@ -17,16 +17,16 @@ const Portfolio = ({
   };
 
   return (
-    <div className="min-h-screen bg-white">
+    <div className="min-h-screen bg-white overflow-hidden">
       <Navigation />
       <FadeIn>
-        <div className="max-w-3xl mx-auto p-8">
-          <div className="h-[calc(100vh-12rem)] overflow-y-auto [&::-webkit-scrollbar]:hidden">
-            <div className="space-y-8">
+        <div className="max-w-7xl mx-auto p-10 h-[calc(100vh-64px)]">
+          <div className="h-full w-full">
+            <div className="grid grid-cols-3 gap-8">
               {Object.keys(images).map((key) => (
                 <Link to={`/project/${key}`} className="block" key={key}>
                   <div className="group cursor-pointer">
-                    <h3 className="text-lg tracking-wide font-light mb-3">
+                    <h3 className="text-xl tracking-wide font-light mb-4">
                       {key}
                     </h3>
                     <div className="aspect-video w-full bg-gray-100 overflow-hidden relative">
